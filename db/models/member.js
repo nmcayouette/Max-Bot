@@ -1,5 +1,3 @@
-'use strict';
-
 module.exports = (sequelize, DataTypes) => {
   const Member = sequelize.define('Member', {
     discorduser: DataTypes.STRING,

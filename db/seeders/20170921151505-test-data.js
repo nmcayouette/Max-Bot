@@ -1,5 +1,3 @@
-'use strict';
-
 const uuidv4 = require('uuid/v4');
 
 module.exports = {
@@ -10,9 +8,9 @@ module.exports = {
       uuid: uuidv4(),
       verified: 0,
     }], {});
-  }
+  },
 
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('Members', null, {});
-  }
+  },
 };
