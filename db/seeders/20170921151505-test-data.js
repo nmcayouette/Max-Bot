@@ -10,7 +10,7 @@ module.exports = {
       uuid: uuidv4(),
       verified: 0,
     }], {});
-  },
+  }
 
   down: (queryInterface, Sequelize) => {
     return queryInterface.bulkDelete('Members', null, {});

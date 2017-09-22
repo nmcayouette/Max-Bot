@@ -5,5 +5,5 @@ models.Member.create({
   discorduser: '@derp',
   email: 'chapman@apextion.com',
   uuid: uuidv4(),
-  verified: 0
+  verified: 0,
 }).then(console.log).catch(console.error);

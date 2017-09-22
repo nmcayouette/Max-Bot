@@ -6,19 +6,19 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       discorduser: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       uuid: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       verified: {
-        type: Sequelize.BOOLEAN
+        type: Sequelize.BOOLEAN,
       },
       createdAt: {
         allowNull: false,
@@ -34,5 +34,5 @@ module.exports = {
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('Members');
-  }
+  },
 };
