@@ -1,4 +1,5 @@
 'use strict';
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('Members', {
@@ -31,8 +32,8 @@ module.exports = {
         defaultValue: Sequelize.fn('now'),
       },
     });
-  },
+  }
   down: (queryInterface, Sequelize) => {
     return queryInterface.dropTable('Members');
-  },
+  }
 };
