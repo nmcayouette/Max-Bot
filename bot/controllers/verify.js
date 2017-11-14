@@ -94,10 +94,6 @@ module.exports = () => {
           };
           // Call sendMail on sendVerifyCode
           // Pass mailOptions & callback function
-
-
-
-
           sendVerifyCode.sendMail(mailOptions, (err, info) => {
             const errorMsg = 'Oops, looks like the email can not be sent. Its not you, its me.. Please contact a moderator and let them know I have failed.';
             if (err) {
@@ -107,11 +103,6 @@ module.exports = () => {
               util.log('Email details', info, 3);
             }
           });
-
-
-
-
-
           util.log('Code', code, 3);
           return `Hi there, ${message.author.username}, it looks like you're trying to verify your email address!\n\nBeep boop... generating verification code... beep boop\n\nI've emailed a ${codeLength}-digit number to _${email}_. Respond back with that number within 10 minutes and I'll automagically verify your email address so you can represent the glorious Full Sail Armada!`;
         } else {
