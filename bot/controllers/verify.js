@@ -50,21 +50,28 @@ module.exports = () => {
             const verifyUser = `Thanks, ${message.author.username}! I'll get to work adding you the servers right away!`;
             const userAlredyOnSystem = `the user ${message.author.username} is already in our system!`;
 
-            models.Member.findOne({ where: { email } }).then((data) => {
-              if (data === null) {
-                // no existing record found
-                models.Member.create({
-                  discorduser: m.author.username,
-                  email,
-                  uuid: uuidv4(),
-                  verified: 1,
-                }).then(util.log).catch(util.error);
-                message.reply(verifyUser);
-              } else {
-                // existing record found
-                message.reply(userAlredyOnSystem);
-              }
-            });
+            if (m.content != code) {
+              message.reply('Verificaiton code does not match. You had one job..');
+            } else {
+            // eslint, stop..
+              models.Member.findOne({ where: { email } }).then((data) => {
+                if (data === null) {
+                  // no existing record found
+                  models.Member.create({
+                    discorduser: m.author.username,
+                    email,
+                    uuid: uuidv4(),
+                    verified: 1,
+                  }).then(util.log).catch(util.error);
+                  message.reply(verifyUser);
+                } else {
+                  // existing record found
+                  message.reply(userAlredyOnSystem);
+                }
+              });
+              // eslint, stop..
+            }
+
 
             util.log('Collected', m.content, 3);
           });
