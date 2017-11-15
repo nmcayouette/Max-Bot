@@ -49,6 +49,7 @@ module.exports = () => {
           collector.on('collect', (m) => {
             const verifyUser = `Thanks, ${message.author.username}! I'll get to work adding you the servers right away!`;
             const userAlredyOnSystem = `the user ${message.author.username} is already in our system!`;
+
             models.Member.findOne({ where: { email } }).then((data) => {
               if (data === null) {
                 // no existing record found
@@ -64,6 +65,7 @@ module.exports = () => {
                 message.reply(userAlredyOnSystem);
               }
             });
+
             util.log('Collected', m.content, 3);
           });
           collector.on('end', (collected) => {
